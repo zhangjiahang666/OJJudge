@@ -1,0 +1,22 @@
+[
+  {
+    "name": "calendar",
+    "src": "D:\\code\\cpp\\day01\\01_CPP\\10.1\\SN-XXX\\day4\\SN-张嘉航\\calendar\\calendar.cpp",
+    "data": "D:\\code\\cpp\\day01\\01_CPP\\10.1\\SN-XXX\\day4\\大样例DAY4\\大样例\\calendar"
+  },
+  {
+    "name": "editor",
+    "src": "D:\\code\\cpp\\day01\\01_CPP\\10.1\\SN-XXX\\day4\\SN-张嘉航\\editor\\editor.cpp",
+    "data": "D:\\code\\cpp\\day01\\01_CPP\\10.1\\SN-XXX\\day4\\大样例DAY4\\大样例\\editor"
+  },
+  {
+    "name": "meeting",
+    "src": "D:\\code\\cpp\\day01\\01_CPP\\10.1\\SN-XXX\\day4\\SN-张嘉航\\meeting\\meeting.cpp",
+    "data": "D:\\code\\cpp\\day01\\01_CPP\\10.1\\SN-XXX\\day4\\大样例DAY4\\大样例\\meeting"
+  },
+  {
+    "name": "supply",
+    "src": "D:\\code\\cpp\\day01\\01_CPP\\10.1\\SN-XXX\\day4\\SN-张嘉航\\supply\\supply.cpp",
+    "data": "D:\\code\\cpp\\day01\\01_CPP\\10.1\\SN-XXX\\day4\\大样例DAY4\\大样例\\supply"
+  }
+]
