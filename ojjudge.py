@@ -621,17 +621,24 @@ def evaluate_one(src, data, gxx, std, opt, score_per, report=None, timeout_ms=10
             os.remove(tmp_out)
         t0 = time.time()
         try:
-            rp = subprocess.run([exe], cwd=data, capture_output=True,
-                                timeout=timeout_ms / 1000.0)
+            # 把输入经 stdin 喂给程序（兼容 cin/cout 写法；freopen 写法会忽略 stdin 读文件）
+            with open(in_f, "rb") as fi:
+                rp = subprocess.run([exe], cwd=data, stdin=fi,
+                                    capture_output=True, timeout=timeout_ms / 1000.0)
         except subprocess.TimeoutExpired:
             rep(os.path.basename(base), "TLE", 0, int(timeout_ms), "", "超时")
             continue
         ms = int((time.time() - t0) * 1000)
 
-        if not os.path.isfile(tmp_out):
+        # 优先用 freopen 写出的 <task>.out；否则用标准输出（cin/cout 程序）
+        mine = None
+        if os.path.isfile(tmp_out):
+            mine = _read_text(tmp_out).strip()
+        elif rp.stdout:
+            mine = rp.stdout.decode("utf-8", "replace").strip()
+        if mine is None:
             rep(os.path.basename(base), "无输出", 0, ms, "", "")
             continue
-        mine = _read_text(tmp_out).strip()
         ans = _read_text(ref).strip()
         if mine == ans:
             ac += 1
